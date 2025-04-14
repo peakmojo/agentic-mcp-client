@@ -1,0 +1,43 @@
+{
+   "inference_server": {
+      "base_url": "https://api.anthropic.com/v1/",
+      "api_key": "xxxx",
+      "use_bedrock": true,
+      "aws_region": "us-east-1",
+      "aws_access_key_id": "xxxx",
+      "aws_secret_access_key": "xxxx"
+   },
+   "mcp_servers": {
+    "mcp-remote-macos-use": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "-e",
+        "MACOS_USERNAME=aabb",
+        "-e",
+        "MACOS_PASSWORD=ccdd",
+        "-e",
+        "MACOS_HOST=ee.ff.gg.hh",
+        "--rm",
+        "buryhuang/mcp-remote-macos-use:latest"
+      ]
+    },
+    "mcp-my-apple-remembers": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "-e",
+        "MACOS_USERNAME=ddee",
+        "-e",
+        "MACOS_PASSWORD=ffgg",
+        "-e",
+        "MACOS_HOST=ee.ff.gg.hh",
+        "--rm",
+        "buryhuang/mcp-my-apple-remembers:latest"
+      ]
+    }
+  }
+}
+

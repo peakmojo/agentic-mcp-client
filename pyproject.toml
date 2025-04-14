@@ -1,0 +1,43 @@
+[project]
+name = "agentic-mcp-client"
+dynamic = ["version"]
+description = "A minimalist agent to support OpenAI, Anthropic and BedRock to call MCP tools."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.49.0",
+    "deepmerge>=2.0",
+    "fastapi>=0.115.6",
+    "httpx>=0.28.1",
+    "httpx-sse>=0.4.0",
+    "lmos-openai-types",
+    "loguru>=0.7.3",
+    "mcp>=1.2.0",
+    "mcpx[docker]>=0.1.1",
+    "pydantic>=2.10.4",
+    "pydantic-settings>=2.7.0",
+    "sse-starlette>=2.2.0",
+    "tortoise-orm[asyncmy,asyncpg]>=0.23.0",
+    "uvicorn>=0.34.0",
+    "boto3>=1.37.28",
+]
+
+[tool.uv.sources]
+lmos-openai-types = { git = "https://github.com/LMOS-IO/LMOS-openai-types", rev = "pydantic-gen" }
+
+[dependency-groups]
+dev = [
+    "mypy>=1.14.0",
+    "ruff>=0.8.4",
+    "uv>=0.5.20",
+]
+[build-system]
+requires = [ "hatchling",]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "agentic_mcp_client/__init__.py"
+
+[project.scripts]
+agentic-mcp-agent = "agentic_mcp_client.agent_worker.run:main"
+

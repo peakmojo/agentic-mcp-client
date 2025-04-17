@@ -8,13 +8,12 @@ A standalone agent runner that executes tasks using MCP (Model Context Protocol)
 
 ## Current Features
 
+- Included a basic agent dashboard
 - Run standalone agents with tasks defined in JSON configuration files
 - Support for both Anthropic Claude and OpenAI models
-- Automatic tool discovery and execution
 - Session logging for tracking agent progress
-- Configurable system prompts and model parameters
-- Support for MCP sampling
-- Maximum iteration control to prevent infinite loops
+
+https://github.com/user-attachments/assets/c98be6d2-0096-40f2-bd78-d3fb256fec83
 
 ## Installation
 

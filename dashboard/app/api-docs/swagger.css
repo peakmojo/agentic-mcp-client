@@ -1,0 +1,32 @@
+/* Swagger UI Overrides */
+.swagger-ui .scheme-container {
+  padding: 20px 0;
+  background: none;
+  box-shadow: none;
+}
+
+.swagger-ui .info {
+  margin-bottom: 20px;
+}
+
+.swagger-ui .opblock .opblock-summary-path {
+  max-width: 100%;
+}
+
+.swagger-ui .markdown p, 
+.swagger-ui .markdown pre, 
+.swagger-ui .renderedMarkdown p, 
+.swagger-ui .renderedMarkdown pre {
+  margin: 0;
+}
+
+/* Fix for Swagger UI in Next.js */
+html .swagger-ui .opblock .opblock-summary-description {
+  text-align: right;
+}
+
+/* Ensure swagger container has appropriate dimensions */
+.swagger-container {
+  height: auto;
+  width: 100%;
+} 

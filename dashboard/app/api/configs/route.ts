@@ -2,6 +2,33 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
+/**
+ * @swagger
+ * /configs:
+ *   get:
+ *     summary: Get available config files
+ *     description: Returns a list of agent worker tasks and config files from the project root
+ *     tags:
+ *       - Configurations
+ *     responses:
+ *       200:
+ *         description: List of configuration files
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 agentWorkerTasks:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                 configFiles:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *       500:
+ *         description: Server error
+ */
 // GET /api/configs - Get available config files
 export async function GET() {
   try {

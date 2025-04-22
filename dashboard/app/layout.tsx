@@ -39,6 +39,12 @@ export default function RootLayout({
                     >
                       Jobs
                     </Link>
+                    <Link 
+                      href="/api-docs" 
+                      className="px-3 py-2 text-sm font-medium text-gray-900 rounded-md hover:bg-gray-100"
+                    >
+                      API Docs
+                    </Link>
                   </div>
                 </div>
               </div>

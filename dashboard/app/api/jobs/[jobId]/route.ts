@@ -3,6 +3,57 @@ import fs from 'fs';
 import path from 'path';
 import { JobStatus } from '../../../../types/job';
 
+/**
+ * @swagger
+ * /jobs/{jobId}:
+ *   get:
+ *     summary: Get job status
+ *     description: Get the status of a specific job by ID
+ *     tags:
+ *       - Jobs
+ *     parameters:
+ *       - in: path
+ *         name: jobId
+ *         required: true
+ *         description: ID of the job to get
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Job information
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/JobStatus'
+ *       404:
+ *         description: Job not found
+ *       500:
+ *         description: Server error
+ *   delete:
+ *     summary: Cancel job
+ *     description: Cancel a running job by ID
+ *     tags:
+ *       - Jobs
+ *     parameters:
+ *       - in: path
+ *         name: jobId
+ *         required: true
+ *         description: ID of the job to cancel
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Job cancelled successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/JobStatus'
+ *       404:
+ *         description: Job not found
+ *       500:
+ *         description: Server error
+ */
+
 // Reference to the shared jobs store
 // This is a workaround since we don't have a proper database
 // In a real app, you'd use a database to store job information

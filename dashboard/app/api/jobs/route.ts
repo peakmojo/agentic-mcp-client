@@ -4,6 +4,98 @@ import fs from 'fs';
 import path from 'path';
 import { JobStatus } from '../../../types/job';
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     JobStatus:
+ *       type: object
+ *       properties:
+ *         jobId:
+ *           type: string
+ *           description: Unique identifier for the job
+ *         status:
+ *           type: string
+ *           enum: [pending, running, completed, failed]
+ *           description: Current status of the job
+ *         createdAt:
+ *           type: string
+ *           format: date-time
+ *           description: When the job was created
+ *         startedAt:
+ *           type: string
+ *           format: date-time
+ *           description: When the job started running
+ *         completedAt:
+ *           type: string
+ *           format: date-time
+ *           description: When the job completed or failed
+ *         workdir:
+ *           type: string
+ *           description: Working directory for the job
+ *         error:
+ *           type: string
+ *           description: Error message if the job failed
+ *     JobSubmission:
+ *       type: object
+ *       required:
+ *         - agent_worker_task
+ *         - config
+ *       properties:
+ *         agent_worker_task:
+ *           type: object
+ *           description: Task configuration for the agent worker
+ *         config:
+ *           type: object
+ *           description: Configuration for the job
+ *         workdir:
+ *           type: string
+ *           description: Optional working directory for the job
+ */
+
+/**
+ * @swagger
+ * /jobs:
+ *   get:
+ *     summary: List all jobs
+ *     description: Returns a list of all jobs with their current status
+ *     tags:
+ *       - Jobs
+ *     responses:
+ *       200:
+ *         description: List of jobs
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/JobStatus'
+ *       500:
+ *         description: Server error
+ *   post:
+ *     summary: Submit a new job
+ *     description: Creates a new job with the provided task and configuration
+ *     tags:
+ *       - Jobs
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/JobSubmission'
+ *     responses:
+ *       201:
+ *         description: Job created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/JobStatus'
+ *       400:
+ *         description: Invalid request body
+ *       500:
+ *         description: Server error
+ */
+
 // Reference to the shared jobs store
 // This is a workaround since we don't have a proper database
 // In a real app, you'd use a database to store job information

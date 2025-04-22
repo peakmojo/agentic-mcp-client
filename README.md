@@ -13,6 +13,15 @@ A standalone agent runner that executes tasks using MCP (Model Context Protocol)
 - Support for both Anthropic Claude and OpenAI models
 - Session logging for tracking agent progress
 
+## Run Dashboard Web
+```
+cd dashboard
+npm i
+npm run dev
+```
+**Dashboard URL**: http://localhost:3000  
+**API Documentation**: http://localhost:3000/api-docs
+
 https://github.com/user-attachments/assets/c98be6d2-0096-40f2-bd78-d3fb256fec83
 
 ## Installation
